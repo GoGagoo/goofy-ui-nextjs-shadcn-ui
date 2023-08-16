@@ -4,8 +4,20 @@ import { Inter } from 'next/font/google'
 import { useGlobalContext } from '../context/store'
 import { useLayoutEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import SidebarNav from '@/components/SidebarNav'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const sidebarNavItems: ISidebarNavItem[] = [
+  {
+    title: 'Agents',
+    href: '/home'
+  },
+  {
+    title: 'Settings',
+    href: '/home/settings'
+  },
+]
 
 export default function HomeLayout({
   children,
@@ -22,10 +34,12 @@ export default function HomeLayout({
   }, [isLogin, router])
 
   return (
-    <div>
-      Home Layout
-      <h1>Username:{username}</h1>
-      {children}
-    </div>
+    <div className="flex ">
+          <aside className="w-1/5">
+            <h1 className="text-4xl font-bold text-center my-8">Gopher AI</h1>
+            <SidebarNav items={sidebarNavItems} />
+          </aside>
+          {children}
+        </div>
   )
 }
