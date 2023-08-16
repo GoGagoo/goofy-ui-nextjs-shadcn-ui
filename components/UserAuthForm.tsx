@@ -20,8 +20,8 @@ import Icons from './Icons'
 import { SIGNIN } from '@/app/constants'
 
 const formSchema = z.object({
-	username: z.string().trim().min(1, {
-		message: 'Username must be at least 5 characters',
+	username: z.string().trim().min(3, {
+		message: 'Username must be at least 3 characters',
 	}),
 	password: z.string().trim().min(1, {
 		message: 'Username must be at least 8 characters',

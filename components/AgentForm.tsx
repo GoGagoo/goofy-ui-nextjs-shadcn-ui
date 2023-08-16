@@ -45,8 +45,8 @@ interface AgentFormProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const formSchema = z.object({
-	name: z.string().trim().min(1, {
-		message: 'Please enter a name mininum length 1.',
+	name: z.string().trim().min(3, {
+		message: 'Please enter a name mininum length 3.',
 	}),
 	status: z.string({
 		required_error: 'Please select an status.',
